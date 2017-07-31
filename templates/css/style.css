@@ -1,0 +1,27 @@
+body {
+    background: #ddebec;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+input, select {
+    height: 30px;
+    padding: 5px;
+}
+
+label {
+    width: 60px;
+}
+
+.error {
+    color: #FF0000;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+
+
