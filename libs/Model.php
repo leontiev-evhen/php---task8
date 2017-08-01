@@ -11,8 +11,8 @@ class Model
     {
         return [
             '%TITLE%' => 'Search engine',
-            // '%PATH%' => '/php/task7/',
-            '%PATH%' => '/~user11/myphp/task8/',
+            '%PATH%' => '/php/task8/',
+            //'%PATH%' => '/~user11/myphp/task8/',
             '%POST_SEARCH%' => '',
             '%BODY%' => '',
             ];
@@ -20,22 +20,30 @@ class Model
 
     public function sendRequest ($post)
     {
+        $arr = '';
        $str = explode(' ',$post);
        foreach ($str as $item){
             $arr .= $item.'+';
        }
        
-       $url = 'https://www.google.com/search?q='.$arr;
+       $url = 'https://www.google.com.ua/search?q='.$arr;
+        $cookie = PATH_FILES.'cookie.txt';
+
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, $url ); 
+        curl_setopt($ch, CURLOPT_URL, $url );
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 30); 
-        curl_setopt($ch, CURLOPT_USERAGENT , "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36");
+        curl_setopt($ch, CURLOPT_USERAGENT , "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36");
         curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie); //cookie
+        curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie); //cookie
+        curl_setopt($ch, CURLOPT_COOKIESESSION, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); //ssl
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //ssl
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
         $result = curl_exec($ch);
 

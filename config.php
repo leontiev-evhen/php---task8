@@ -1,5 +1,4 @@
 <?php
 
 define('TEMPLATE', 'templates/index.php');
-//define('EMAIL', 'leontevevgenii@gmail.com');
-define('EMAIL', 'vpavlov@geeksforless.net');
+define('PATH_FILES', '/var/www/courses.site/public_html/php/task8/files/');
