@@ -11,7 +11,7 @@ class Controller
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
-           $result =  $this->model->sendRequest($_POST['search']);
+            $result =  $this->model->sendRequest($_POST['search']);
             $this->getArray($result['data']);
         }
         else
@@ -20,13 +20,6 @@ class Controller
         }
 
         $this->view->templateRender();          
-    }   
-
-    private function pageSendMail ()
-    {
-        $result = $this->model->sendEmail();
-
-        $this->getArray($result['data']);
     }   
 
     private function pageDefault ()

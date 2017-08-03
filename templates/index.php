@@ -27,8 +27,8 @@
                  </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <form action="index.php" method="post">
+                <div class="col-md-8">
+                    <form action="index.php" method="post" class="form">
                         <div class="form-group">
                                 <input type="text" name="search" class="custom-file-input" value="%POST_SEARCH%">
                                  <input type="submit" class="btn btn-info" value="Search">
@@ -36,12 +36,11 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+
+                <div class="col-md-8">
                     %BODY%
                 </div>
-            </div>
+</div>    
 
    
         </div>
